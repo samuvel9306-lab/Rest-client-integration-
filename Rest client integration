@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Real-Time Multiplayer Demo</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div id="app">
+<header>
+<h1>Real-Time Multiplayer Demo</h1>
+<div id="status">
+<span id="connDot" class="dot offline"></span>
+<span id="statusText">Offline</span>
+</div>
+</header>
+
+
+<main>
+<section id="homeScreen" class="panel">
+<h2>Home</h2>
+<input id="nameInput" placeholder="Your name" />
+<input id="roomInput" placeholder="Room ID (optional)" />
+<div class="controls">
+<button id="joinBtn">Join Room</button>
+</div>
+<div id="lobbyInfo"></div>
+</section>
+
+
+<section id="gameScreen" class="panel hidden">
+<div class="topbar">
+<div>Room: <span id="roomLabel">-</span></div>
+<div>Players: <span id="playersCount">0</span></div>
+</div>
+
+
+<div id="gameAreaWrap">
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+<div id="chatBox">
+<div id="messages"></div>
+<input id="chatInput" placeholder="Say something..." />
+</div>
+</div>
+
+
+<div class="info">
+<p>Use arrow keys (or WASD) to move your avatar. Position updates are broadcast in real time.</p>
+<button id="leaveBtn">Leave Room</button>
+</div>
+</section>
+</main>
+
+
+<footer>
+<small>Demo: Node.js + Socket.IO — No DB (in-memory only)</small>
+</footer>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/client.js"></script>
+</body>
+</html>
